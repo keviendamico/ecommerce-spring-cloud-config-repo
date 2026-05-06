@@ -1,4 +1,23 @@
-# Spring Cloud E-Commerce Demo
+# spring-cloud-config-repo
+
+This repository is the **Git backend for Spring Cloud Config Server**. It contains only YAML files — no Java code. The Config Server clones this repo on startup and serves its content to all microservices over HTTP.
+
+### Structure
+
+```
+spring-cloud-config-repo/
+├── application.yml           ← shared config for all services (Eureka URL, etc.)
+├── product-service.yml       ← overrides for product-service (port 8081, H2 datasource)
+├── inventory-service.yml     ← overrides for inventory-service (port 8082)
+├── order-service.yml         ← overrides for order-service (port 8083)
+└── api-gateway.yml           ← overrides for api-gateway (port 8080, routing rules)
+```
+
+Config Server resolves files by `{application-name}.yml`. If a service is named `product-service`, it receives both `application.yml` (shared base) and `product-service.yml` (specific overrides) merged together.
+
+---
+
+## Project Overview
 
 A learning project for exploring Spring Cloud through a minimal microservices-based e-commerce system.
 
