@@ -3,16 +3,17 @@ server:
 spring:
   cloud:
     gateway:
-      routes:
-        - id: product-service
-          uri: lb://product-service
-          predicates:
-            - Path=/api/products/**
-        - id: inventory-service
-          uri: lb://inventory-service
-          predicates:
-            - Path=/api/inventory/**
-        - id: order-service
-          uri: lb://order-service
-          predicates:
-            - Path=/api/orders/**
+      mvc:
+        routes:
+          - id: product-service
+            uri: lb://product-service
+            predicates:
+              - Path=/api/products/**
+          - id: inventory-service
+            uri: lb://inventory-service
+            predicates:
+              - Path=/api/inventory/**
+          - id: order-service
+            uri: lb://order-service
+            predicates:
+              - Path=/api/orders/**
