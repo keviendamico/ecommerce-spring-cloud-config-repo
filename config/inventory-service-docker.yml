@@ -1,0 +1,4 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://sc-inventory-service-postgres:5433/inventory_db

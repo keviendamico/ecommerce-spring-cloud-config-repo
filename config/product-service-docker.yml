@@ -1,0 +1,4 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql:///sc-product-service-postgres:5432/product_db
