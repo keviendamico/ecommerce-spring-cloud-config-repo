@@ -1,4 +1,8 @@
 spring:
+  cloud:
+    openfeign:
+      circuitbreaker:
+        enable: true
   jpa:
     hibernate:
       ddl-auto: none
@@ -11,5 +15,32 @@ spring:
   flyway:
     enabled: true
     locations: classpath:db/migration
+resilience4j:
+  circuitbreaker:
+    instances:
+      product-service:
+        sliding-window-size: 10
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10s
+        permitted-number-of-calls-in-half-open-state: 3
+      inventory-service:
+        sliding-window-size: 10
+        failure-rate-threshold: 50
+        wait-duration-in-open-state: 10s
+        permitted-number-of-calls-in-half-open-state: 3
+  retry:
+    instances:
+      product-service:
+        max-attempts: 3
+        wait-duration: 500ms
+      inventory-service:
+        max-attempts: 3
+        wait-duration: 500ms
+  timelimiter:
+    instances:
+      product-service:
+        timeout-duration: 3s
+      inventory-service:
+        timeout-duration: 3s
 server:
   port: 8083
