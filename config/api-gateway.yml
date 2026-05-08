@@ -6,27 +6,27 @@ spring:
       server:
         webmvc:
           routes:
+            - id: product-service-base
+              uri: lb://product-service
+              predicates:
+                - Path=/api/products
             - id: product-service
               uri: lb://product-service
               predicates:
-                - name: Path
-                  args:
-                    patterns:
-                      - /api/products
-                      - /api/products/**
+                - Path=/api/products/**
+            - id: inventory-service-base
+              uri: lb://inventory-service
+              predicates:
+                - Path=/api/inventory
             - id: inventory-service
               uri: lb://inventory-service
               predicates:
-                - name: Path
-                  args:
-                    patterns:
-                      - /api/inventory
-                      - /api/inventory/**
+                - Path=/api/inventory/**
+            - id: order-service-base
+              uri: lb://order-service
+              predicates:
+                - Path=/api/orders
             - id: order-service
               uri: lb://order-service
               predicates:
-                - name: Path
-                  args:
-                    patterns:
-                      - /api/orders
-                      - /api/orders/**
+                - Path=/api/orders/**
