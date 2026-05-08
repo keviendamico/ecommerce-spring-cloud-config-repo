@@ -1,4 +1,4 @@
 spring:
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://sc-order-service-postgres:5434/order_db
+    url: jdbc:postgresql://sc-order-service-postgres:5432/order_db
