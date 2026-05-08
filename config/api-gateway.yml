@@ -9,12 +9,12 @@ spring:
             - id: product-service
               uri: lb://product-service
               predicates:
-                - Path=/api/products/**
+                - Path=/api/products,/api/products/**
             - id: inventory-service
               uri: lb://inventory-service
               predicates:
-                - Path=/api/inventory/**
+                - Path=/api/inventory,/api/inventory/**
             - id: order-service
               uri: lb://order-service
               predicates:
-                - Path=/api/orders/**
+                - Path=/api/orders,/api/orders/**
