@@ -1,8 +1,9 @@
 spring:
   cloud:
     openfeign:
-      okhttp:
-        enabled: true
+      httpclient:
+        hc5:
+          enabled: true
       circuitbreaker:
         enable: true
   jpa:
