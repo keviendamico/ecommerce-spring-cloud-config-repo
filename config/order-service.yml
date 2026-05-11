@@ -1,6 +1,8 @@
 spring:
   cloud:
     openfeign:
+      okhttp:
+        enabled: true
       circuitbreaker:
         enable: true
   jpa:
